@@ -42,8 +42,8 @@ To Generate an API Key follow these steps:
 
 ```yaml
 steps:
-    - name: Run Checkmarx DAST Scan
-      uses: checkmarx/dast-github-action@v1.0
+    - name: Checkmarx DAST Github Action
+      uses: Checkmarx/dast-github-action@v1.0.0-beta
       env:
         CX_APIKEY: ${{ secrets.CX_ONE_API_KEY }}
 ```
@@ -79,7 +79,7 @@ steps:
     - uses: actions/checkout@v3
     # Scan Iac with kics
     - name: Checkmarx DAST Github Action
-      uses: Checkmarx/checkmarx-dast-github-action@beta
+      uses: Checkmarx/dast-github-action@v1.0.0-beta
       env:
         CX_APIKEY: ${{ secrets.CX_ONE_API_KEY }}
       with:
@@ -100,7 +100,7 @@ steps:
     - uses: actions/checkout@v3
     # Scan Iac with kics
     - name: Checkmarx DAST Github Action
-      uses: Checkmarx/checkmarx-dast-github-action@beta
+      uses: Checkmarx/dast-github-action@v1.0.0-beta
       env:
         CX_APIKEY: ${{ secrets.CX_ONE_API_KEY }}
       with:
