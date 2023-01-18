@@ -1,0 +1,79 @@
+name: "DAST Github Action"
+description: "Integrate DAST into your GitHub Actions CI/CD pipelines with a specific DAST GitHub Action."
+branding:
+  icon: 'check-square'
+  color: 'purple'
+inputs:
+  command:
+    description: "The type of scan to preform (web, api)"
+    required: true
+  config:
+    description: "The path to the ZAP configuration file"
+    required: true
+  base_url:
+    description: "The baseURL for the CxOne Servers"
+    required: true
+  environment_id:
+    description: "The environment ID previously created in the Frontend"
+    required: true
+  openapi:
+    description: "The path to the openapi files"
+    required: false
+  project_id:
+    description: "The project ID"
+    required: false
+  output:
+    description: "The path to generate the output"
+    required: false
+  timeout:
+    description: "The zap engine timeout"
+    required: false
+    default: "10000"
+  update_interval:
+    description: "The interval in which to update on the progress of the scan"
+    default: "10"
+    required: false
+  jvm_properties:
+    description: "The jvm properties used in the ZAP engine"
+    required: false
+    default: "-Xmx3G"
+  log_level:
+    description: "The log level for the logs"
+    default: "info"
+    required: false
+  verbose:
+    description: "Set to true in order to print the logs to the stdout"
+    required: false
+    default: "false"
+  fail_on:
+    description: "The Severity in which the action should fail"
+    required: false
+  retry:
+    required: false
+    default: "3"
+    description: Retry requests to AST on connection failure
+  retry_delay:
+    required: false
+    default: "20"
+    description: Time between retries in seconds, use with retry
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    WORKSPACE_PATH: $GITHUB_WORKSPACE
+  args:
+    - ${{ inputs.config }}
+    - ${{ inputs.output }}
+    - ${{ inputs.timeout }}
+    - ${{ inputs.update_interval }}
+    - ${{ inputs.jvm_properties }}
+    - ${{ inputs.log_level }}
+    - ${{ inputs.base_url }}
+    - ${{ inputs.verbose }}
+    - ${{ inputs.fail_on }}
+    - ${{ inputs.command }}
+    - ${{ inputs.environment_id }}
+    - ${{ inputs.openapi }}
+    - ${{ inputs.project_id }}
+    - ${{ inputs.retry }}
+    - ${{ inputs.retry_delay }}
