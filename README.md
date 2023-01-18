@@ -1,21 +1,21 @@
-# DAST GitHub Action
+# Checkmarx DAST GitHub Action
 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL3.0-yellow.svg)](https://www.gnu.org/licenses)
 
-- [DAST GitHub Action](#dast-github-action)
-  - [Integrate DAST into your GitHub workflows](#integrate-dast-into-your-github-workflows)
-    - [Authentication with CxOne Servers](#authentication)
+- [Checkmarx DAST GitHub Action](#checkmarx-dast-github-action)
+  - [Integrate DAST into your GitHub workflows](#integrate-checkmarx-dast-into-your-github-workflows)
+    - [Authentication with Checkmarx One Servers](#authentication)
   - [Inputs](#inputs)
   - [Simple usage example](#simple-usage-example)
 
-## Integrate DAST into your GitHub workflows
+## Integrate Checkmarx DAST into your GitHub workflows
 
-You can integrate DAST into your GitHub Actions CI/CD pipelines with a specific DAST GitHub Action.
+You can integrate DAST into your GitHub Actions CI/CD pipelines.
 This provides you the ability to run DAST scans in your GitHub repositories.
 
 ### Authentication
 
-DAST CLI Authentication is made through CxOne API Key
+Checkmarx DAST CLI Authentication is made through Checkmarx One API Key
 To Generate an API Key follow these steps:
 
 1. Go to Identity and Access Management
@@ -42,7 +42,7 @@ To Generate an API Key follow these steps:
 
 ```yaml
 steps:
-    - name: Run DAST Scan
+    - name: Run Checkmarx DAST Scan
       uses: checkmarx/dast-github-action@v1.0
       env:
         CX_APIKEY: ${{ secrets.CX_ONE_API_KEY }}
@@ -54,10 +54,10 @@ steps:
 |-------------------|-----------------------------------------|---------------------------------------------------------------------------------|---------------------------|
 | command           | web      	                              | The type of scan to preform (web, api)                                          | true                      |
 | config            | ./zap_config.yaml                       | The path to the ZAP configuration file                                          | true                      |
- | base_url          | localhost.cxast.net                     | The baseURL for the CxOne application                                           | true                      |
+ | base_url          | localhost.cxast.net                     | The baseURL for the Checkmarx One application                                           | true                      |
 | environment_id    | c608a51a-ec4e-4eef-81c4-a0241737efd7  	 | The environment ID retrieved from DAST in CxOne	                                | true                      |
 | openapi  	        | 	           ./swagger.yaml              | The path to the openapi specification file 	                                    | true (only for api scan)  |
-| project_id 	      | fd093dde-b64a-466f-b2cd-8bf141b4db94	   | The project ID retrieved from project tab in CxOne  	                           | false (only for api scan) |
+| project_id 	      | fd093dde-b64a-466f-b2cd-8bf141b4db94	   | The project ID retrieved from project tab in Checkmarx One  	                           | false (only for api scan) |
 | output	           | 	 ./output                              | The path to generate the output files (zap log and original results) 	          | false                     |
 | timeout 	         | 10000 	                                 | The zap engine timeout in seconds (default: 300) 	                              | false                     |
 | update_interval 	 | 	 10                                    | The interval in which to log the progress of the scan in seconds (default: 10) 	 | false                     |
@@ -78,8 +78,8 @@ steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v3
     # Scan Iac with kics
-    - name: Run DAST Scan
-      uses: checkmarx/dast-github-action@v1.0
+    - name: Checkmarx DAST Github Action
+      uses: Checkmarx/checkmarx-dast-github-action@beta
       env:
         CX_APIKEY: ${{ secrets.CX_ONE_API_KEY }}
       with:
@@ -99,8 +99,8 @@ steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v3
     # Scan Iac with kics
-    - name: Run DAST Scan
-      uses: checkmarx/dast-github-action@v1.0
+    - name: Checkmarx DAST Github Action
+      uses: Checkmarx/checkmarx-dast-github-action@beta
       env:
         CX_APIKEY: ${{ secrets.CX_ONE_API_KEY }}
       with:
