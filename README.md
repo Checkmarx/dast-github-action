@@ -20,23 +20,13 @@ To Generate an API Key follow these steps:
 
 1. Go to Identity and Access Management
 
-   <img alt="iam" src="docs/img/iam.png">
-
 2. Go to API Keys
-
-   <img alt="apik" src="docs/img/api_key.png">
 
 3. Create a new API Key
 
-   <img alt="iam" src="docs/img/create_key.png">
-
 4. Copy the Generated Key
 
-   <img alt="iam" src="docs/img/key.png"> 
-
 5. Create a GitHub action runner secret from the key generated in point 4
-
-   <img alt="iam" src="docs/img/secret.png">
 
 6. Set the enviornment variable `CX_APIKEY` to you newly created secret
 
