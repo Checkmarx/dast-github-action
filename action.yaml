@@ -1,5 +1,5 @@
-name: "DAST Github Action"
-description: "Integrate DAST into your GitHub Actions CI/CD pipelines with a specific DAST GitHub Action."
+name: "Checkmarx DAST Github Action"
+description: "Integrate Checkmarx DAST into your GitHub Actions CI/CD pipelines."
 branding:
   icon: 'check-square'
   color: 'purple'
@@ -11,7 +11,7 @@ inputs:
     description: "The path to the ZAP configuration file"
     required: true
   base_url:
-    description: "The baseURL for the CxOne Servers"
+    description: "The baseURL for the Checkmarx One Servers"
     required: true
   environment_id:
     description: "The environment ID previously created in the Frontend"
