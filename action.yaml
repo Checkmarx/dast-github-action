@@ -1,5 +1,5 @@
 name: "DAST Github Action"
-description: "You can integrate DAST into your GitHub Actions CI/CD pipelines with a specific DAST GitHub Action. This provides you the ability to run DAST scans in your GitHub repositories."
+description: "Integrate DAST into your GitHub Actions CI/CD pipelines with a specific DAST GitHub Action."
 inputs:
   command:
     description: "The type of scan to preform (web, api)"
