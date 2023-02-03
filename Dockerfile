@@ -1,7 +1,7 @@
 FROM checkmarx/dast:1.0.0
 
-COPY entrypoint.sh /entrypoint.sh
+COPY --chown=1000 entrypoint.sh /entrypoint.sh
 
-USER root
+USER zap
 
 ENTRYPOINT ["/entrypoint.sh"]
