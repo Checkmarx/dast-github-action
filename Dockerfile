@@ -1,4 +1,4 @@
-FROM checkmarx/dast:1.0.2
+FROM checkmarx/dast:1.0.3
   
 USER root
 
