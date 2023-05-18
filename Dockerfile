@@ -1,4 +1,4 @@
-FROM checkmarx/dast:1.0.3
+FROM checkmarx/dast:1.0.4
 
 COPY entrypoint.sh /entrypoint.sh
 
