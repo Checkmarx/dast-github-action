@@ -50,24 +50,27 @@ steps:
 
 ## Inputs
 
-| Variable 	        | Example Value 	                         | Description 	                                                                   | Required                  |
+| Variable          | Example Value                           | Description                                                                     | Required                  |
 |-------------------|-----------------------------------------|---------------------------------------------------------------------------------|---------------------------|
-| command           | web      	                              | The type of scan to preform (web, api)                                          | true                      |
+| command           | web                                     | The type of scan to preform (web, api)                                          | true                      |
 | config            | ./zap_config.yaml                       | The path to the ZAP configuration file                                          | true                      |
- | base_url          | localhost.cxast.net                     | The baseURL for the Checkmarx One application                                           | true                      |
-| environment_id    | c608a51a-ec4e-4eef-81c4-a0241737efd7  	 | The environment ID retrieved from DAST in CxOne	                                | true                      |
-| openapi  	        | 	           ./swagger.yaml              | The path to the openapi specification file 	                                    | true (only for api scan)  |
-| project_id 	      | fd093dde-b64a-466f-b2cd-8bf141b4db94	   | The project ID retrieved from project tab in Checkmarx One  	                           | false (only for api scan) |
-| output	           | 	 ./output                              | The path to generate the output files (zap log and original results) 	          | false                     |
-| timeout 	         | 10000 	                                 | The zap engine timeout in seconds (default: 300) 	                              | false                     |
-| update_interval 	 | 	 10                                    | The interval in which to log the progress of the scan in seconds (default: 10) 	 | false                     |
-| jvm_properties 	  | -Xmx512m   	                            | 	The jvm properties used in the ZAP engine (default: -Xmx3G)                    | false                     |
-| log_level 	       | info   	                                | The level on what DAST will log (default: info)	                                | false                     |
-| 	verbose          | 	 true                                  | Set to true in order to print the logs to the stdout (default: false)	          | false                     |
-| fail_on 	         | high 	                                  | 	The minimum severity in which the action should fail                           | false                     |
-| retry	            | 3 	                                     | Retry requests to AST on connection failure (default: 3)	                       | false                     |
-| retry_delay	      | 	  20                                   | 	Time between retries in seconds, use with retry (default: 20)                  | false                     |
-
+| base_url          | localhost.cxast.net                     | The baseURL for the Checkmarx One application                                   | true                      |
+| environment_id    | c608a51a-ec4e-4eef-81c4-a0241737efd7    | The environment ID retrieved from DAST in CxOne                                 | true                      |
+| openapi           | ./swagger.yaml                          | The path to the openapi specification file                                      | true  (only for api scan) |
+| project_id        | fd093dde-b64a-466f-b2cd-8bf141b4db94    | The project ID retrieved from project tab in Checkmarx One                      | false (only for api scan) |
+| output            | ./output                                | The path to generate the output files (zap log and original results)            | false                     |
+| timeout           | 10000                                   | The zap engine timeout in seconds (default: 300)                                | false                     |
+| update_interval   | 10                                      | The interval in which to log the progress of the scan in seconds (default: 10)  | false                     |
+| jvm_properties    | -Xmx512m                                | The jvm properties used in the ZAP engine (default: -Xmx3G)                     | false                     |
+| log_level         | info                                    | The level on what DAST will log (default: info)                                 | false                     |
+| verbose           | true                                    | Set to true in order to print the logs to the stdout (default: false)           | false                     |
+| fail_on           | high                                    | The minimum severity in which the action should fail                            | false                     |
+| retry             | 3                                       | Retry requests to AST on connection failure (default: 3)                        | false                     |
+| retry_delay       | 20                                      | Time between retries in seconds, use with retry (default: 20)                   | false                     |
+| proxy-url         | http://myproxy.com                      | Override the proxy used by the ZAP Engine                                       | false                     |
+| proxy-port        | 8088                                    | The port number for the proxy                                                   | false                     |
+| poll-timeout      | 600                                     | Poll timeout in seconds, for uploading results (default: 600)                   | false                     |
+| poll-ticker       | 30                                      | Time interval between sending poll requests (default: 30)                       | false                     |
 ## Simple Usage Example
 
 ### Web Scan
