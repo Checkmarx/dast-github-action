@@ -1,4 +1,4 @@
-FROM checkmarx/dast:2.0.0
+FROM checkmarx/dast:2.0.1
 
 USER zap
 
