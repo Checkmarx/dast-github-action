@@ -19,9 +19,6 @@ inputs:
   openapi:
     description: "The path to the openapi files"
     required: false
-  project_id:
-    description: "The project ID"
-    required: false
   output:
     description: "The path to generate the output"
     required: false
@@ -56,6 +53,18 @@ inputs:
     required: false
     default: "20"
     description: Time between retries in seconds, use with retry
+  proxy-url:
+    description: "Override the proxy used by the ZAP Engine"
+    required: false
+  proxy-port:
+    description: "The port number for the proxy"
+    required: false
+  poll-timeout:
+    required: false
+    description: "Poll timeout in seconds, for uploading results"
+  poll-ticker:
+    required: false
+    description: "Time interval between sending poll requests"
 runs:
   using: docker
   image: Dockerfile
@@ -77,3 +86,7 @@ runs:
     - ${{ inputs.project_id }}
     - ${{ inputs.retry }}
     - ${{ inputs.retry_delay }}
+    - ${{ inputs.url }}
+    - ${{ inputs.port }}
+    - ${{ inputs.poll-timeout }}
+    - ${{ inputs.poll-ticker }}
