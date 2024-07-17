@@ -17,7 +17,10 @@ inputs:
     description: "The environment ID previously created in the Frontend"
     required: true
   openapi:
-    description: "The path to the openapi files"
+    description: "Relevant only for api scans. Path to the openapi file (cannot be provided with postman flag)"
+    required: false
+  postman:
+    description: "Relevant only for api scans. Path to the postman collection file (cannot be provided with openapi flag)"
     required: false
   output:
     description: "The path to generate the output"
@@ -83,6 +86,7 @@ runs:
     - ${{ inputs.command }}
     - ${{ inputs.environment_id }}
     - ${{ inputs.openapi }}
+    - ${{ inputs.postman }}
     - ${{ inputs.project_id }}
     - ${{ inputs.retry }}
     - ${{ inputs.retry_delay }}
