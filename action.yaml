@@ -68,6 +68,9 @@ inputs:
   poll-ticker:
     required: false
     description: "Time interval between sending poll requests"
+  recording-path:
+    required: false
+    description: "The path to the recording of the authentication process"
 runs:
   using: docker
   image: Dockerfile
@@ -94,3 +97,4 @@ runs:
     - ${{ inputs.port }}
     - ${{ inputs.poll-timeout }}
     - ${{ inputs.poll-ticker }}
+    - ${{ inputs.recording-path }}
