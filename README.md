@@ -68,6 +68,7 @@ steps:
 | fail_on           | high                                    | The minimum severity in which the action should fail                           | false                     |
 | retry             | 3                                       | Retry requests to AST on connection failure (default: 3)                       | false                     |
 | retry_delay       | 20                                      | Time between retries in seconds, use with retry (default: 20)                  | false                     |
+| recording-path    | ./recording.js                          | The path to the recording of the authentication process                        | false                     |
 | proxy-url         | http://myproxy.com                      | Override the proxy used by the ZAP Engine                                      | false                     |
 | proxy-port        | 8088                                    | The port number for the proxy                                                  | false                     |
 | poll-timeout      | 600                                     | Poll timeout in seconds, for uploading results (default: 600)                  | false                     |
@@ -114,6 +115,30 @@ steps:
         environment_id: "c608a51a-ec4e-4eef-81c4-a0241737efd7"
         openapi: "swagger.yaml"
         project_id: "fd093dde-b64a-466f-b2cd-8bf141b4db94"
+        fail_on: "HIGH"
+        verbose: true
+```
+
+### API Scan with recording
+
+```yaml
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v3
+    # Scan Iac with kics
+    - name: Checkmarx DAST Github Action
+      uses: Checkmarx/dast-github-action@v1.0.0-beta
+      env:
+        CX_APIKEY: ${{ secrets.CX_ONE_API_KEY }}
+      with:
+        command: "api"
+        config: 'zap_api_config.yaml'
+        base_url: "localhost.cxast.net"
+        environment_id: "c608a51a-ec4e-4eef-81c4-a0241737efd7"
+        openapi: "swagger.yaml"
+        project_id: "fd093dde-b64a-466f-b2cd-8bf141b4db94"
+        recording-path: "recording_10_09_24.js"
         fail_on: "HIGH"
         verbose: true
 ```
